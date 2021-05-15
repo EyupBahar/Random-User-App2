@@ -4,10 +4,10 @@
     box-sizing:border-box;
 }
 
-img{
+.logo{
     padding:7px;
     width:3rem;
-    /* background-color:#FDFDFD; */
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     border-radius:50%;
     box-shadow: 1px 1px 1px;
 }

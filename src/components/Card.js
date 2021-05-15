@@ -24,26 +24,34 @@ const UserCard = () => {
   }, []);
 
   return (
-    <div className="container">
-      <img src={cw} alt="cw" className="pro-photo" />
+    <div className="main_container">
+      <div className="cw">
+        <img src={cw} alt="cw" className="cw-logo" />
+      </div>
       {userList?.map((user, index) => (
-        <div className="Card" key={index}>
-          <div className="profile">
-            <img src={user.picture.thumbnail} alt="pic" className="pic" />
-            {/* <p>
-              {user.first.name} {user.last.name}
-            </p> */}
+        <div className="Card_box" key={index}>
+          <img src={user.picture.large} alt="pic" className="profile_photo" />
+          <p>
+            {user.name.first} {user.name.last}
+          </p>
+          <div className="profile_box">
             <img src={man} alt="man" className="logo" />
             <img src={mail} alt="mail" className="logo" />
             <img src={growingman} alt="growing" className="logo" />
             <img src={map} alt="map" className="logo" />
             <img src={phone} alt="phone" className="logo" />
-            <img src={padlock} alt="padlock" className="logo" />
+            <img
+              onMouseOver={userData}
+              onMouseLeave={null}
+              src={padlock}
+              alt="padlock"
+              className="logo"
+            />
             <button onClick={userData}>NEW USER</button>
             <button>ADD USER</button>
           </div>
-          <div>
-            <img src={design} alt="design" />
+          <div className="footer_design">
+            <img src={design} alt="design" className="design" />
           </div>
         </div>
       ))}

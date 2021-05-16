@@ -30,8 +30,8 @@
     box-shadow: 3px 4px 20px -1px #6b6b6b;
 }
 .info{
-    margin:0auto;
-    /* border:1px solid black; */
+    margin:5px auto;
+    text-align:center;
     height:6rem;
     display: flex;
     flex-direction:column;

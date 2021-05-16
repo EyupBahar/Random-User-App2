@@ -13,6 +13,20 @@ import phone from "../assets/phone.svg";
 
 const UserCard = () => {
   const [userCard, setUserCard] = useState();
+  const [visible, setVisible] = useState(false);
+  const [userInfo, setUserInfo] = useState([]);
+  const createUser = () => {
+    setUserInfo([
+      ...userInfo,
+      {
+        name: userCard?.name?.first,
+        email: userCard?.email,
+        phone: userCard?.phone,
+        age: userCard?.dob?.age,
+      },
+    ]);
+    setVisible(true);
+  };
 
   const userData = () => {
     axios.get("https://randomuser.me/api/").then((res) => {
@@ -26,6 +40,7 @@ const UserCard = () => {
     title: "name",
     info: "Omer Faruk",
   });
+
   return (
     <div className="main_container">
       <div className="cw">
@@ -109,9 +124,35 @@ const UserCard = () => {
             </div>
             <div className="btn-container">
               <button onClick={userData}>NEW USER</button>
-              <button>ADD USER</button>
+              <button onClick={createUser}>ADD USER</button>
             </div>
           </div>
+          {visible ? (
+            <div>
+              <table>
+                <colgroup>
+                  <col span="1" style={{ width: "25%" }}></col>
+                  <col span="1" style={{ width: "25%" }}></col>
+                  <col span="1" style={{ width: "25%" }}></col>
+                  <col span="1" style={{ width: "25%" }}></col>
+                </colgroup>
+                <tr className="tableHeader">
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Age</th>
+                </tr>
+                {userInfo?.map((item) => (
+                  <tr className="tableInfo">
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.age}</td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          ) : null}
           <div className="footer_design">
             <img src={design} alt="design" className="design" />
           </div>

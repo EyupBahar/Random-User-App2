@@ -3,7 +3,7 @@
     height: 100%;
 }
 .cw{
-    height:12rem;
+    height:13rem;
     padding-top:7%;
 }
 .cw-logo{
@@ -15,15 +15,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:-12%;
-    background: linear-gradient(#e9edf0 30%,#FEFEFE 25%);
-    height:10rem;
+    margin-top:0%;
+    background: linear-gradient(#3e87be 80px,#FEFEFE 25%);
+    height:auto;
     width:30rem;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-    padding-top:50%;
+    padding-top:0%;
 }
 .profile_photo{
-    margin-top:-40%;
+    margin-top:7%;
     width:6rem;
     border-radius: 50%;
     padding:7px;
@@ -78,4 +78,11 @@ button:hover{
     width:2rem;
     text-align: center;
     
+}
+.table_container{
+    text-align: center;
+    background-color: azure;
+}
+.tableHeader{
+    background-color:#FEC861;
 }

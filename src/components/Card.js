@@ -12,38 +12,53 @@ import padlock from "../assets/padlock.svg";
 import phone from "../assets/phone.svg";
 
 const UserCard = () => {
-  const [userList, setUserList] = useState();
+  const [userCard, setUserCard] = useState();
+  // const [userInfo, setUserInf  o] = useState();
 
   const userData = () => {
     axios.get("https://randomuser.me/api/").then((res) => {
-      setUserList(res.data.results);
+      setUserCard(res.data.results);
     });
   };
   useEffect(() => {
     userData();
   }, []);
+  const [currentData, setCurrentData] = useState({
+    title: "name",
+    info: "Omer Faruk",
+  });
 
   return (
     <div className="main_container">
       <div className="cw">
         <img src={cw} alt="cw" className="cw-logo" />
       </div>
-      {userList?.map((user, index) => (
+      {userCard?.map((user, index) => (
         <div className="Card_box" key={index}>
           <div className="profile_box">
             <img src={user.picture.large} alt="pic" className="profile_photo" />
             <div className="info">
-              {user.name.first} {user.name.last}
+              <p>My {currentData.title} is</p>
+              <h2>{currentData.info}</h2>
             </div>
             <div className="logo-container">
-              <img src={man} alt="man" className="logo" />
+              <img
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "name",
+                    info: user.name.first + " " + user.name.last,
+                  })
+                }
+                src={man}
+                alt="man"
+                className="logo"
+              />
               <img src={mail} alt="mail" className="logo" />
               <img src={growingman} alt="growing" className="logo" />
               <img src={map} alt="map" className="logo" />
               <img src={phone} alt="phone" className="logo" />
               <img
                 onMouseOver={userData}
-                // onMouseLeave={null}
                 src={padlock}
                 alt="padlock"
                 className="logo"

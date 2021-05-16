@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     margin-top:-12%;
-    background: linear-gradient(#F1F4F7 30%,#FEFEFE 25%);
+    background: linear-gradient(#e9edf0 30%,#FEFEFE 25%);
     height:10rem;
     width:30rem;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -36,6 +36,7 @@
     display: flex;
     flex-direction:column;
     justify-content: center;
+    color:black;
 }
 .logo{
     padding:7px;

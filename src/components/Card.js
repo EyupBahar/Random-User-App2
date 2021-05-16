@@ -13,7 +13,6 @@ import phone from "../assets/phone.svg";
 
 const UserCard = () => {
   const [userCard, setUserCard] = useState();
-  // const [userInfo, setUserInf  o] = useState();
 
   const userData = () => {
     axios.get("https://randomuser.me/api/").then((res) => {
@@ -27,7 +26,6 @@ const UserCard = () => {
     title: "name",
     info: "Omer Faruk",
   });
-
   return (
     <div className="main_container">
       <div className="cw">
@@ -53,12 +51,57 @@ const UserCard = () => {
                 alt="man"
                 className="logo"
               />
-              <img src={mail} alt="mail" className="logo" />
-              <img src={growingman} alt="growing" className="logo" />
-              <img src={map} alt="map" className="logo" />
-              <img src={phone} alt="phone" className="logo" />
               <img
-                onMouseOver={userData}
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "email",
+                    info: user.email,
+                  })
+                }
+                src={mail}
+                alt="mail"
+                className="logo"
+              />
+              <img
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "age",
+                    info: user.dob.age,
+                  })
+                }
+                src={growingman}
+                alt="growing"
+                className="logo"
+              />
+              <img
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "adress",
+                    info: user.location.state + " " + user.location.country,
+                  })
+                }
+                src={map}
+                alt="map"
+                className="logo"
+              />
+              <img
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "phone number",
+                    info: user.phone,
+                  })
+                }
+                src={phone}
+                alt="phone"
+                className="logo"
+              />
+              <img
+                onMouseOver={() =>
+                  setCurrentData({
+                    title: "password",
+                    info: user.login.password,
+                  })
+                }
                 src={padlock}
                 alt="padlock"
                 className="logo"

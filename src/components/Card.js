@@ -5,8 +5,10 @@ import axios from "axios";
 import cw from "../assets/cw.svg";
 import design from "../assets/design.svg";
 import growingman from "../assets/growing-up-man.svg";
+import growingwoman from "../assets/growing-up-woman.svg";
 import mail from "../assets/mail.svg";
 import man from "../assets/man.svg";
+import woman from "../assets/woman.svg";
 import map from "../assets/map.svg";
 import padlock from "../assets/padlock.svg";
 import phone from "../assets/phone.svg";
@@ -39,7 +41,11 @@ const UserCard = () => {
       setCurrentData({
         title: "name",
         info:
-          res.data.results[0].name.first + " " + res.data.results[0].name.last,
+          res.data.results[0].name.title +
+          " " +
+          res.data.results[0].name.first +
+          " " +
+          res.data.results[0].name.last,
       });
     });
   };
@@ -69,10 +75,15 @@ const UserCard = () => {
               onMouseOver={() =>
                 setCurrentData({
                   title: "name",
-                  info: userCard?.name?.first + " " + userCard?.name?.last,
+                  info:
+                    userCard?.name?.title +
+                    " " +
+                    userCard?.name?.first +
+                    " " +
+                    userCard?.name?.last,
                 })
               }
-              src={man}
+              src={userCard?.gender === "female" ? woman : man}
               alt="man"
               className="logo"
             />
@@ -94,7 +105,7 @@ const UserCard = () => {
                   info: userCard?.dob?.age,
                 })
               }
-              src={growingman}
+              src={userCard?.gender === "female" ? growingwoman : growingman}
               alt="growing"
               className="logo"
             />
